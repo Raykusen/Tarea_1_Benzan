@@ -4,7 +4,7 @@
 @* @using Microsoft.AspNetCore.Authorization
 @attribute [Authorize] *@
 
-<h3>Categorias</h3>
+<h3>Categories</h3>
 @if (ShowForm)
 {
     @* Formularion de accion*@
@@ -12,25 +12,25 @@
         <h5 class="card-header">@Accion categoria</h5>
         <div class="card-body">
             <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input @bind-value="MiCategoria.Nombre" type="text" class="form-control" id="nombre" placeholder="Nombre" disabled="@DisableInputs">
+                <label for="nombre" class="form-label">Name</label>
+                <input @bind-value="MiCategoria.Nombre" type="text" class="form-control" id="nombre" placeholder="Name" disabled="@DisableInputs">
             </div>
 
             @if(Accion == Constants.Acciones.Registrar)
             {
-                <span class="btn btn-primary" @onclick="Aceptar">Aceptar</span>
+                <span class="btn btn-primary" @onclick="Aceptar">Accept</span>
             }
 
             @if (Accion == Constants.Acciones.Modificar)
             {
-                <span class="btn btn-primary" @onclick="Aceptar">Aceptar</span>
+                <span class="btn btn-primary" @onclick="Aceptar">Accept</span>
             }
 
             @if (Accion == Constants.Acciones.Eliminar)
             {
-                <span class="btn btn-primary" @onclick="Aceptar">Aceptar</span>
+                <span class="btn btn-primary" @onclick="Aceptar">Accept</span>
             }
-            <span class="btn btn-danger" @onclick="btnCancelarClick">@(Accion != Constants.Acciones.Ver?"Cancelar":"Salir")</span>
+            <span class="btn btn-danger" @onclick="btnCancelarClick">@(Accion != Constants.Acciones.Ver?"Cancel":"Salir")</span>
         </div>
     </div>
 }
@@ -48,8 +48,8 @@ else
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Categorias</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col">Categories</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
 
@@ -65,8 +65,8 @@ else
                                     <td>@p.Nombre</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                            <span @onclick="()=>btnEditarClick(p)" class="btn btn-outline-warning">Editar</span>
-                                            <span @onclick="()=>btnEliminarClick(p)" class="btn btn-outline-danger">Eliminar</span>
+                                            <span @onclick="()=>btnEditarClick(p)" class="btn btn-outline-warning">Edit</span>
+                                            <span @onclick="()=>btnEliminarClick(p)" class="btn btn-outline-danger">Delete</span>
                                         </div>
                                     </td>
                                 </tr>

@@ -4,7 +4,7 @@
 @* @using Microsoft.AspNetCore.Authorization
 @attribute [Authorize] *@
 
-<h3>Productos</h3>
+<h3>Products</h3>
 @if (ShowForm)
 {
     @* Formularion de accion*@
@@ -12,17 +12,17 @@
         <h5 class="card-header">@Accion producto</h5>
         <div class="card-body">
             <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input @bind-value="MiProducto.Nombre" type="text" class="form-control" id="nombre" placeholder="Nombre" disabled="@DisableInputs">
+                <label for="nombre" class="form-label">Name</label>
+                <input @bind-value="MiProducto.Nombre" type="text" class="form-control" id="nombre" placeholder="Name" disabled="@DisableInputs">
             </div>
             <div class="mb-3">
-                <label for="descripcion" class="form-label">Descripción</label>
+                <label for="descripcion" class="form-label">Description</label>
                 <textarea @bind="MiProducto.Descripcion" class="form-control" id="descripcion" rows="3" disabled="@DisableInputs"></textarea>
             </div>
             <div class="mb-3">
-                <label for="categoria" class="form-label">Ctegoría</label>
+                <label for="categoria" class="form-label">Category</label>
                 <select @bind="@MiProducto.CategoriaId" id="categoria" class="form-select">
-                    <option disabled selected>Seleccione una categoría</option>
+                    <option disabled selected>Select a category</option>
                     @if (Categorias != null)
                     {
                         @foreach (var categoria in Categorias)
@@ -33,14 +33,14 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="precio" class="form-label">Precio (RD$)</label>
+                <label for="precio" class="form-label">Price (RD$)</label>
                 <input @bind="MiProducto.Precio" type="text" class="form-control" id="precio" disabled="@DisableInputs"></input>
             </div>
             @if(Accion != Constants.Acciones.Ver)
             {
-                <span class="btn btn-primary" @onclick="Aceptar">Aceptar</span>
+                <span class="btn btn-primary" @onclick="Aceptar">Accept</span>
             }
-            <span class="btn btn-danger" @onclick="btnCancelarClick">@(Accion != Constants.Acciones.Ver?"Cancelar":"Salir")</span>
+            <span class="btn btn-danger" @onclick="btnCancelarClick">@(Accion != Constants.Acciones.Ver?"Cancel":"Salir")</span>
         </div>
     </div>
 }
@@ -58,10 +58,10 @@ else
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Categoría</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Acciones</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,8 +76,8 @@ else
                                     <td>@p.PrecioText</td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                            <span @onclick="()=>btnEditarClick(p)" class="btn btn-outline-warning">Editar</span>
-                                            <span @onclick="()=>btnEliminarClick(p)" class="btn btn-outline-danger">Eliminar</span>
+                                            <span @onclick="()=>btnEditarClick(p)" class="btn btn-outline-warning">Edit</span>
+                                            <span @onclick="()=>btnEliminarClick(p)" class="btn btn-outline-danger">Delete</span>
                                             <span @onclick="()=>btnVerClick(p)" class="btn btn-outline-primary">Ver</span>
                                         </div>
                                     </td>
